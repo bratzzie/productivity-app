@@ -13,6 +13,7 @@ import {RiHome2Line, RiSettings5Line, RiTodoLine} from 'react-icons/ri'
 import {auth} from './components/firebase'
 import { login, logout, selectUser } from './features/userSlice';
 import Login from './components/Login';
+import Nav from './components/Nav';
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
           uid: userAuth.uid,
           displayName: userAuth.displayName,
           photoUrl: userAuth.photoURL,
+      //    city: userAuth.city
         }))
       } 
       else{
@@ -36,7 +38,7 @@ function App() {
 
   return (
    <div>
-      {!user ? (<Login />) : (<Home />)}
+      {!user ? (<Login />) : (<Nav />)}
    </div>
  
 
